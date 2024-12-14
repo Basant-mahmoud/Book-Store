@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Book_Store.Models.Domain.Genre>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h3 class="mt-4 mb-4 text-center">Genres</h3>
+
+            <table class="table table-hover table-bordered shadow-sm rounded">
+                <thead>
+                    <tr class="text-center bg-dark text-white">
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="text-center align-middle">
+                            <td>@item.Name</td>
+                            <td>
+                                <a class="btn btn-outline-success btn-sm mx-1" href="/Genre/Update?id=@item.Id">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-outline-danger btn-sm mx-1" onclick="return confirm('Are you sure you want to delete?');" href="/Genre/Delete?id=@item.Id">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="mb-3 text-right">
+                <a href="/Genre/Add" class="btn btn-dark" ">
+                    <i class="fas fa-plus"></i> Add More Genre
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">

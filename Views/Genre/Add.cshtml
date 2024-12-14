@@ -1,0 +1,28 @@
+﻿@model Book_Store.Models.Domain.Genre
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class ="mt-4">Add Genre</h3>
+            <form asp-action="Add" method="post">
+                <div class="form-group">
+                    <label asp-for="Name">Name *</label>
+                    <input type="text" class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                @if (TempData["msg"] != null)
+                {
+                    <div class="alert" style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; border-radius: 4px;">
+                        @TempData["msg"]
+                    </div>
+                }
+                <div class="form-group pt-3">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="/Genre/GetAll" class="btn btn-primary">List</a>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
