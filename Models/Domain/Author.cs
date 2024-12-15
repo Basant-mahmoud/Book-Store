@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Book_Store.Models.Domain
 {
-    public class Authorcs
+    public class Author
     {
         public int Id { get; set; }
         [Required]

@@ -1,0 +1,60 @@
+﻿@model Book_Store.Models.Domain.Book
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class ="mt-4">Add Book</h3>
+            <form asp-action="Add" method="post">
+                <div class="form-group">
+                    <label asp-for="Title">Title *</label>
+                    <input type="text" class="form-control" asp-for="Title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Isbn">Isbn *</label>
+                    <input type="text" class="form-control" asp-for="Isbn" />
+                    <span asp-validation-for="Isbn" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TotalPages">TotalPages *</label>
+                    <input type="number" class="form-control" asp-for="TotalPages" />
+                    <span asp-validation-for="TotalPages" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PublisherId">Publisher *</label>
+                    <select asp-for="PublisherId"  asp-items="Model.Publisherlist" class="form-control" >
+                        <option value="">----selected---</option>
+                    </select>
+                    <span asp-validation-for="PublisherId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AutherId">Author *</label>
+                    <select asp-for="AutherId" asp-items="Model.Authorlist" class="form-control">
+                        <option value="">----selected---</option>
+                    </select>
+                    <span asp-validation-for="AutherId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GenreId">Genre *</label>
+                    <select asp-for="GenreId" asp-items="Model.Genrelist" class="form-control">
+                        <option value="">----selected---</option>
+                    </select>
+                    <span asp-validation-for="GenreId" class="text-danger"></span>
+                </div>
+               
+
+                @if (TempData["msg"] != null)
+                {
+                    <div class="alert" style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; border-radius: 4px;">
+                        @TempData["msg"]
+                    </div>
+                }
+                <div class="form-group pt-3">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="/Book/GetAll" class="btn btn-primary">List</a>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

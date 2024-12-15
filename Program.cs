@@ -15,6 +15,9 @@ namespace Book_Store
             builder.Services.AddControllersWithViews();
             //add services
             builder.Services.AddScoped<IGenreService, GenreService>();
+            builder.Services.AddScoped<IAuthorService, AuthorService>();
+            builder.Services.AddScoped<IPublisherService, PublisherService>();
+            builder.Services.AddScoped<IBookService, BookService>();
             //connection to database 
             builder.Services.AddDbContext<BookStoreContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("con")));

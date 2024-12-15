@@ -6,7 +6,7 @@ namespace Book_Store.Models.Domain
     {
         public BookStoreContext(DbContextOptions<BookStoreContext>options) :base(options){ }
         public DbSet<Book> Books { get; set; }
-        public DbSet<Authorcs> Authors { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Genre> Genres { get; set; }
 
